@@ -15,7 +15,7 @@
 
         :root {
             --fundo-principal: #000000;
-            --fundo-secundario: #000000; /* FUNDO 100% PRETO ATRÁS DA IMAGEM */
+            --fundo-secundario: #000000; /* FUNDO 100% PRETO */
             --destaque-branco: #FFFFFF;
             --texto-cinza: #CCCCCC;
             --borda-branca: #FFFFFF;
@@ -41,14 +41,14 @@
 
         .cabecalho-imagem {
             width: 100%;
-            background: var(--fundo-secundario); /* PRETO PURO */
+            background: var(--fundo-secundario);
             display: flex; justify-content: center; align-items: center;
             padding: clamp(24px, 7vw, 48px) 0; min-height: 220px;
             border-bottom: 2px solid var(--borda-branca);
             box-shadow: var(--sombra-branca);
         }
         .avatar {
-            width: clamp(300px, 85vw, 900px); /* TAMANHO MÁXIMO PARA NÃO BUGAR */
+            width: clamp(300px, 85vw, 900px);
             max-width: 100%;
             height: auto;
             object-fit: contain;
@@ -208,7 +208,7 @@
 <body>
     <div class="cabecalho-imagem">
         <img 
-            src="https://i.postimg.cc/pTqNfYL1/100.png" 
+            src="https://i.postimg.cc/YS4ffQzr/phototune-ai-1783448272.png" 
             alt="Logo 100' OUSADIA - FREE FIRE" 
             class="avatar"
             onerror="this.style.display='none'; this.parentElement.innerHTML='<h1 style=\'color:#FFF; text-align:center; font-size:clamp(32px,8vw,48px); font-weight:900;\'>100\' OUSADIA - FREE FIRE</h1>'"
@@ -332,5 +332,5 @@
         &copy; 2026 100' OUSADIA - FREE FIRE | Todos os direitos reservados
     </footer>
 </body>
-                    </html>
+    </html>
                     
