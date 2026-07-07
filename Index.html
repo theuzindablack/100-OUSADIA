@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>100' OUSADIA - FREE FIRE | Comunidade Oficial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        :root {
+            --preto-fundo: #0F0707;
+            --preto-claro: #1A0D0D;
+            --vermelho-padrao: #FF0000;
+            --vermelho-escuro: #CC0000;
+            --texto-branco: #FFFFFF;
+            --texto-cinza: #E0E0E0;
+            --borda-vermelha: #FF0000;
+        }
+
+        body {
+            background: var(--preto-fundo);
+            color: var(--texto-branco);
+            line-height: 1.7;
+            font-size: 17px;
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==============================================
+           🎨 EMOJIS PERSONALIZADOS EXCLUSIVOS (FEITOS EM CSS)
+           ============================================== */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Ícone Principal Campeonato */
+        .icon-trofeu {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--vermelho-padrao);
+            border-radius: 50%;
+            color: var(--vermelho-padrao);
+            font-size: 20px;
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Ícone Link Discord */
+        .icon-link {
+            width: 28px;
+            height: 28px;
+            background: var(--vermelho-padrao);
+            border-radius: 6px;
+            color: var(--preto-fundo);
+            font-size: 14px;
+        }
+
+        /* Ícones dos Cargos de Convite */
+        .icon-top {
+            width: 28px;
+            height: 28px;
+            background: var(--vermelho-padrao);
+            border-radius: 50%;
+            color: var(--preto-fundo);
+            font-size: 15px;
+        }
+        .icon-medio {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--vermelho-padrao);
+            border-radius: 50%;
+            color: var(--vermelho-padrao);
+            font-size: 15px;
+        }
+        .icon-bronze {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--vermelho-escuro);
+            border-radius: 50%;
+            color: var(--vermelho-escuro);
+            font-size: 15px;
+        }
+        .icon-novo {
+            width: 28px;
+            height: 28px;
+            background: var(--preto-claro);
+            border: 2px solid var(--vermelho-padrao);
+            border-radius: 50%;
+            color: var(--vermelho-padrao);
+            font-size: 16px;
+        }
+
+        /* Ícone Meta */
+        .icon-meta {
+            padding: 3px 10px;
+            background: var(--vermelho-escuro);
+            border-radius: 4px;
+            color: var(--texto-branco);
+            font-size: 13px;
+            margin-right: 6px;
+        }
+
+        /* Ícone Permissões */
+        .icon-perms {
+            padding: 2px 8px;
+            border: 1px solid var(--vermelho-padrao);
+            border-radius: 4px;
+            color: var(--vermelho-padrao);
+            font-size: 13px;
+            margin-right: 6px;
+        }
+
+        /* Ícone Regras */
+        .icon-regras {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--vermelho-padrao);
+            border-radius: 6px;
+            color: var(--vermelho-padrao);
+            font-size: 16px;
+        }
+
+        .cabecalho-imagem {
+            width: 100%;
+            background: var(--preto-claro);
+            display: flex; justify-content: center; align-items: center;
+            padding: clamp(24px, 7vw, 48px) 0; min-height: 220px;
+        }
+        .avatar {
+            width: clamp(300px, 85vw, 520px); height: auto; object-fit: contain;
+            filter: drop-shadow(0 6px 16px rgba(255, 0, 0, 0.5)); transition: transform 0.3s ease;
+            background: rgba(255, 0, 0, 0.1); border-radius: 12px; padding: 8px;
+        }
+        .avatar:hover { transform: scale(1.03); }
+
+        header {
+            background: var(--preto-claro); padding: clamp(24px, 6vw, 40px) 0; text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.6); border-bottom: 2px solid var(--borda-vermelha);
+            margin-bottom: clamp(32px, 7vw, 56px);
+        }
+        header h1 {
+            font-size: clamp(38px, 10vw, 60px); color: var(--texto-branco); margin-bottom: 10px;
+            font-weight: 700; text-shadow: 0 2px 8px rgba(255,0,0,0.6);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        header p { font-size: clamp(16px, 3.8vw, 20px); color: var(--texto-cinza); max-width: 700px; margin: 0 auto; font-weight: 500; }
+
+        .container { max-width: 960px; margin: 0 auto clamp(32px, 7vw, 56px); padding: 0 clamp(20px, 5vw, 32px); }
+        .secao {
+            background: var(--preto-claro); border-radius: 12px; padding: clamp(24px, 6vw, 36px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5); border-left: 4px solid var(--borda-vermelha);
+            margin-bottom: clamp(24px, 6vw, 40px); transition: transform 0.3s ease;
+        }
+        .secao:hover { transform: translateY(-4px); }
+        .secao h2 {
+            font-size: clamp(22px, 4.8vw, 26px); color: var(--texto-branco); margin-bottom: 24px;
+            padding-bottom: 14px; border-bottom: 2px solid var(--borda-vermelha);
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .destaque-evento {
+            background: linear-gradient(135deg, var(--preto-claro) 0%, var(--preto-fundo) 100%);
+            border: 2px solid var(--borda-vermelha); border-radius: 12px;
+            padding: clamp(24px, 6vw, 32px); text-align: center;
+            margin-bottom: clamp(24px, 6vw, 40px);
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+        }
+        .destaque-evento h2 {
+            color: var(--vermelho-padrao); font-size: clamp(24px, 5vw, 32px); margin-bottom: 16px;
+            text-shadow: 0 0 10px rgba(255,0,0,0.6); border: none; padding: 0; justify-content: center;
+        }
+        .destaque-evento p {
+            color: var(--texto-cinza); font-size: clamp(17px, 4vw, 21px); line-height: 1.9;
+            margin-bottom: 20px; font-weight: 500;
+        }
+        .servidor-oficial {
+            background: rgba(255,0,0,0.1); border: 1px solid var(--vermelho-padrao); border-radius: 10px;
+            padding: clamp(18px, 5vw, 24px);
+        }
+        .servidor-oficial h3 { color: var(--texto-branco); margin-bottom: 12px; font-size: clamp(18px, 4.5vw, 22px); font-weight: 600; }
+        .servidor-oficial a {
+            color: var(--vermelho-claro); font-weight: 700; font-size: clamp(17px, 4vw, 21px);
+            text-decoration: none; transition: all 0.3s;
+        }
+        .servidor-oficial a:hover { color: var(--texto-branco); text-shadow: 0 0 10px rgba(255,0,0,0.7); }
+
+        .intro-convites {
+            color: var(--texto-cinza); text-align: center; margin-bottom: 28px;
+            font-size: clamp(18px, 4vw, 21px); font-weight: 500;
+        }
+        .nivel-convite {
+            padding: clamp(20px, 5vw, 28px); border-bottom: 1px solid rgba(255,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .nivel-convite:last-child { border-bottom: none; }
+        .nivel-convite:hover { background: rgba(255,0,0,0.05); padding-left: 8px; }
+        .cargo-meta {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px; margin-bottom: 12px;
+        }
+        .nome-cargo { color: var(--vermelho-claro); font-weight: 700; font-size: clamp(17px, 4vw, 20px); text-transform: uppercase; }
+        .meta { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+        .permissoes {
+            color: var(--texto-cinza); font-size: clamp(16px, 3.8vw, 18px);
+            padding-left: clamp(20px, 5vw, 28px); margin-top: 8px; font-weight: 500;
+        }
+
+        .aviso-inicial {
+            color: var(--texto-cinza); margin-bottom: 24px; text-align: center;
+            font-weight: 600; font-size: clamp(17px, 4vw, 20px);
+        }
+        .regras-lista { list-style: none; }
+        .regras-lista li {
+            padding: clamp(16px, 4vw, 20px) 0; border-bottom: 1px solid rgba(255,0,0,0.2);
+            transition: background 0.3s; color: var(--texto-cinza); font-size: clamp(16px, 3.8vw, 19px); font-weight: 500;
+        }
+        .regras-lista li:hover { background: rgba(255,0,0,0.05); color: var(--texto-branco); }
+        .aviso-observacao {
+            margin-top: 24px; padding: clamp(16px, 4vw, 20px);
+            background: rgba(255,0,0,0.1); border: 1px solid var(--vermelho-padrao); border-radius: 8px;
+            color: var(--vermelho-claro); font-weight: 600; text-align: center; line-height: 1.8; font-size: 17px;
+        }
+        .parceira {
+            margin-top: 24px; padding: clamp(18px, 4.5vw, 24px);
+            background: var(--preto-fundo); border: 1px solid var(--vermelho-padrao); border-radius: 10px;
+            text-align: center;
+        }
+        .parceira h3 { color: var(--vermelho-padrao); margin-bottom: 12px; font-size: clamp(19px, 4.5vw, 23px); font-weight: 700; text-transform: uppercase; }
+        .parceira a {
+            color: var(--vermelho-claro); font-weight: 700; font-size: clamp(17px, 4vw, 20px);
+            text-decoration: none; transition: all 0.3s;
+        }
+        .parceira a:hover { color: var(--texto-branco); text-shadow: 0 0 8px rgba(255,0,0,0.6); }
+
+        footer {
+            text-align: center; padding: clamp(20px, 5vw, 32px);
+            background: var(--preto-fundo); color: var(--texto-cinza); border-top: 2px solid var(--borda-vermelha);
+            font-size: 16px; font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho-imagem">
+        <img 
+            src="https://i.postimg.cc/pTqNfYL1/100.png" 
+            alt="Logo 100' OUSADIA - FREE FIRE" 
+            class="avatar"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<h1 style=\'color:#FF0000; text-align:center; font-size:clamp(32px,8vw,48px);\'>100\' OUSADIA - FREE FIRE</h1>'"
+        >
+    </div>
+
+    <header>
+        <h1>100' OUSADIA - FREE FIRE</h1>
+        <p>Comunidade Oficial e Parceira | Serviços e Segurança</p>
+    </header>
+
+    <div class="container">
+        <!-- DESTAQUE CAMPEONATO -->
+        <div class="destaque-evento">
+            <h2><span class="icon icon-trofeu">🏆</span> QUERO VER GERAL ENTRANDO TROPA!</h2>
+            <p>
+                MUITOS CAMPEONATOS!<br>
+                SÁBADO ÀS 21:00 (9:00 DA NOITE)<br>
+                RESENHAS E MOSTRAR PARA TODO MUNDO QUEM É O MELHOR!<br>
+                <strong>SÁBADO VALENDO UMA CALL PRIVADA!</strong>
+            </p>
+            <div class="servidor-oficial">
+                <h3>@everyone 📢 SERVIDOR OFICIAL DO SITE</h3>
+                <a href="https://discord.gg/pdx8FkDV78" target="_blank">
+                    <span class="icon icon-link">🔗</span> https://discord.gg/pdx8FkDV78
+                </a>
+            </div>
+        </div>
+
+        <!-- SISTEMA DE CONVITES -->
+        <div class="secao">
+            <h2><i class="fas fa-user-plus"></i> Sistema de Convites</h2>
+            <p class="intro-convites">Quer ganhar cargos exclusivos limitados? Basta bater as metas de convites abaixo!</p>
+
+            <div class="nivel-convite">
+                <div class="cargo-meta">
+                    <span class="nome-cargo"><span class="icon icon-top">1º</span> Cargo Top</span>
+                    <span class="meta"><span class="icon icon-meta">META</span> Convidar 500 membros!</span>
+                </div>
+                <p class="permissoes"><span class="icon icon-perms">PERMISSÕES:</span> Criar cargos, banir, castigar, mutar, call privada, todas as permissões abaixo.</p>
+            </div>
+
+            <div class="nivel-convite">
+                <div class="cargo-meta">
+                    <span class="nome-cargo"><span class="icon icon-medio">2º</span> Cargo Intermediário Top</span>
+                    <span class="meta"><span class="icon icon-meta">META</span> Convidar 300 membros!</span>
+                </div>
+                <p class="permissoes"><span class="icon icon-perms">PERMISSÕES:</span> Ver registro de auditoria, castigar, usar vídeo, acesso preferencial, permissões inferiores.</p>
+            </div>
+
+            <div class="nivel-convite">
+                <div class="cargo-meta">
+                    <span class="nome-cargo"><span class="icon icon-bronze">3º</span> Cargo Intermediário</span>
+                    <span class="meta"><span class="icon icon-meta">META</span> Convidar 150 membros!</span>
+                </div>
+                <p class="permissoes"><span class="icon icon-perms">PERMISSÕES:</span> Mutar, mover membros, usar efeitos especiais, permissões inferiores.</p>
+            </div>
+
+            <div class="nivel-convite">
+                <div class="cargo-meta">
+                    <span class="nome-cargo"><span class="icon icon-novo">★</span> Cargo Inicial</span>
+                    <span class="meta"><span class="icon icon-meta">META</span> Convidar 80 membros!</span>
+                </div>
+                <p class="permissoes"><span class="icon icon-perms">PERMISSÕES:</span> Conectar em chamadas cheias, alterar próprio apelido.</p>
+            </div>
+        </div>
+
+        <!-- REGRAS -->
+        <div class="secao">
+            <h2><span class="icon icon-regras">📜</span> Regras do Servidor</h2>
+            <p class="aviso-inicial">Para não tomar nenhuma punição, leia as regras atentamente!</p>
+            
+            <ul class="regras-lista">
+                <li>É proibido o uso, a venda ou a divulgação de qualquer tipo de cheat/xit.</li>
+                <li>Não é permitido enviar mensagens em chats inadequados; evite poluir os canais.</li>
+                <li>É estritamente proibido o compartilhamento de conteúdos +18.</li>
+                <li>Não será tolerado racismo, homofobia ou gordofobia.</li>
+                <li>É proibido atrapalhar a jogatina de outros jogadores, seja por efeitos sonoros ou qualquer outro meio.</li>
+                <li>Não é permitido flood nem divulgações de vendas ou trocas de qualquer tipo.</li>
+            </ul>
+
+            <div class="aviso-observacao">
+                ⚠️ Observação: Scams (calotes envolvendo dinheiro ou roubo de contas) realizados dentro do servidor também violam as diretrizes. No entanto, a equipe não se responsabiliza por prejuízos causados por essas ações.
+            </div>
+
+            <div class="parceira">
+                <h3><span class="icon icon-link">🔗</span> Parceira @everyone</h3>
+                <a href="https://discord.gg/yYemCXzXTx" target="_blank">https://discord.gg/yYemCXzXTx</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 100' OUSADIA - FREE FIRE | Todos os direitos reservados
+    </footer>
+</body>
+  </html>
+  
