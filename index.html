@@ -15,7 +15,7 @@
 
         :root {
             --fundo-principal: #000000;
-            --fundo-secundario: #111111;
+            --fundo-secundario: #000000; /* FUNDO 100% PRETO ATRÁS DA IMAGEM */
             --destaque-branco: #FFFFFF;
             --texto-cinza: #CCCCCC;
             --borda-branca: #FFFFFF;
@@ -41,17 +41,21 @@
 
         .cabecalho-imagem {
             width: 100%;
-            background: var(--fundo-secundario);
+            background: var(--fundo-secundario); /* PRETO PURO */
             display: flex; justify-content: center; align-items: center;
             padding: clamp(24px, 7vw, 48px) 0; min-height: 220px;
             border-bottom: 2px solid var(--borda-branca);
             box-shadow: var(--sombra-branca);
         }
         .avatar {
-            width: clamp(300px, 85vw, 520px); height: auto; object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)); transition: transform 0.3s ease;
+            width: clamp(300px, 85vw, 900px); /* TAMANHO MÁXIMO PARA NÃO BUGAR */
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
         }
-        .avatar:hover { transform: scale(1.03); }
+        .avatar:hover { transform: scale(1.02); }
 
         header {
             background: var(--fundo-principal); padding: clamp(24px, 6vw, 40px) 0; text-align: center;
@@ -328,5 +332,4 @@
         &copy; 2026 100' OUSADIA - FREE FIRE | Todos os direitos reservados
     </footer>
 </body>
-    </html>
-    
+</html>
