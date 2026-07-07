@@ -2,15 +2,22 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- CONFIGURAÇÕES EXTRAS PARA TODOS OS DISPOSITIVOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>100' OUSADIA - FREE FIRE | Comunidade Oficial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* RESET UNIVERSAL COMPLETO */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
@@ -23,33 +30,43 @@
             --sombra-icone: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        body {
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
             background: var(--fundo-principal);
             color: var(--destaque-branco);
-            line-height: 1.7;
-            font-size: 17px;
+            line-height: 1.6;
+            font-size: 16px;
             font-weight: 500;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .icone {
             color: var(--destaque-branco);
             filter: drop-shadow(var(--sombra-icone));
             margin-right: 12px;
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 28px);
+            flex-shrink: 0;
         }
 
+        /* CABEÇALHO DA IMAGEM ADAPTÁVEL */
         .cabecalho-imagem {
             width: 100%;
             background: var(--fundo-secundario);
-            display: flex; justify-content: center; align-items: center;
-            padding: clamp(24px, 7vw, 48px) 0; min-height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+            min-height: clamp(180px, 40vw, 350px);
             border-bottom: 2px solid var(--borda-branca);
             box-shadow: var(--sombra-branca);
         }
         .avatar {
-            width: clamp(300px, 85vw, 900px);
+            width: clamp(280px, 90vw, 1200px); /* AUMENTA PARA TELAS GRANDES/TV */
             max-width: 100%;
+            max-height: 85vh;
             height: auto;
             object-fit: contain;
             display: block;
@@ -58,150 +75,247 @@
         .avatar:hover { transform: scale(1.02); }
 
         header {
-            background: var(--fundo-principal); padding: clamp(24px, 6vw, 40px) 0; text-align: center;
-            margin-bottom: clamp(32px, 7vw, 56px);
+            background: var(--fundo-principal);
+            padding: clamp(20px, 5vw, 35px) clamp(15px, 4vw, 25px);
+            text-align: center;
+            margin-bottom: clamp(25px, 6vw, 45px);
         }
         header h1 {
-            font-size: clamp(38px, 10vw, 60px); color: var(--destaque-branco); margin-bottom: 10px;
-            font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+            font-size: clamp(32px, 9vw, 72px); /* FONTE GRANDE PARA TV */
+            color: var(--destaque-branco);
+            margin-bottom: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
-        header p { font-size: clamp(16px, 3.8vw, 20px); color: var(--texto-cinza); max-width: 700px; margin: 0 auto; font-weight: 500; }
+        header p {
+            font-size: clamp(15px, 3.5vw, 22px);
+            color: var(--texto-cinza);
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
 
-        .container { max-width: 960px; margin: 0 auto clamp(32px, 7vw, 56px); padding: 0 clamp(20px, 5vw, 32px); }
+        .container {
+            width: 100%;
+            max-width: 1200px; /* MAIOR PARA TELAS GRANDES */
+            margin: 0 auto clamp(25px, 6vw, 45px);
+            padding: 0 clamp(15px, 4vw, 30px);
+        }
 
         .destaque-evento {
             background: var(--fundo-principal);
             border: 3px solid var(--borda-branca);
             border-radius: 16px;
-            padding: clamp(32px, 7vw, 40px);
+            padding: clamp(25px, 6vw, 40px);
             text-align: center;
-            margin-bottom: clamp(40px, 8vw, 56px);
+            margin-bottom: clamp(30px, 7vw, 50px);
             box-shadow: var(--sombra-branca);
         }
         .destaque-titulo {
-            display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
-            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
         }
         .destaque-evento h2 {
-            color: var(--destaque-branco); font-size: clamp(32px, 7vw, 40px);
+            color: var(--destaque-branco);
+            font-size: clamp(28px, 6.5vw, 48px);
             text-shadow: var(--sombra-branca);
-            font-weight: 900; text-transform: uppercase; line-height: 1.3;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.3;
             margin: 0;
         }
         .destaque-evento p {
-            color: var(--texto-cinza); font-size: clamp(18px, 4.5vw, 22px); line-height: 1.8;
-            margin-bottom: 28px; font-weight: 500;
+            color: var(--texto-cinza);
+            font-size: clamp(17px, 4vw, 24px);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-weight: 500;
             text-transform: uppercase;
         }
         .caixa-servidor {
             background: rgba(255, 255, 255, 0.08);
             border: 2px solid var(--borda-branca);
             border-radius: 12px;
-            padding: clamp(20px, 5vw, 28px);
+            padding: clamp(18px, 5vw, 28px);
             text-align: left;
             box-shadow: 0 0 12px rgba(255,255,255,0.2);
+            word-break: break-word;
         }
         .caixa-servidor h3 {
-            color: var(--destaque-branco); margin-bottom: 16px;
-            font-size: clamp(22px, 5vw, 26px); font-weight: 700;
+            color: var(--destaque-branco);
+            margin-bottom: 15px;
+            font-size: clamp(20px, 4.5vw, 28px);
+            font-weight: 700;
             text-transform: uppercase;
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
         }
         .caixa-servidor a {
-            color: var(--destaque-branco); font-weight: 700; font-size: clamp(18px, 4.5vw, 22px);
-            text-decoration: none; transition: all 0.3s;
+            color: var(--destaque-branco);
+            font-weight: 700;
+            font-size: clamp(16px, 4vw, 22px);
+            text-decoration: none;
+            transition: all 0.3s;
             text-shadow: 0 0 8px rgba(255,255,255,0.4);
-            display: flex; align-items: center;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
-        .caixa-servidor a:hover { color: var(--texto-cinza); text-shadow: 0 0 15px rgba(255,255,255,0.7); }
+        .caixa-servidor a:hover {
+            color: var(--texto-cinza);
+            text-shadow: 0 0 15px rgba(255,255,255,0.7);
+        }
 
         .secao {
             border-left: 4px solid var(--borda-branca);
-            padding: clamp(24px, 6vw, 36px);
-            margin-bottom: clamp(24px, 6vw, 40px);
+            padding: clamp(20px, 5vw, 35px) clamp(15px, 4vw, 25px);
+            margin-bottom: clamp(20px, 5vw, 35px);
         }
         .secao h2 {
-            font-size: clamp(26px, 5.5vw, 32px); color: var(--destaque-branco); margin-bottom: 16px;
-            padding-bottom: 12px; border-bottom: 2px solid rgba(255,255,255,0.15);
-            font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;
-            display: flex; align-items: center;
+            font-size: clamp(24px, 5vw, 36px);
+            color: var(--destaque-branco);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.15);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         .intro-convites {
-            color: var(--texto-cinza); margin-bottom: 28px;
-            font-size: clamp(20px, 4.5vw, 24px); font-weight: 500;
+            color: var(--texto-cinza);
+            margin-bottom: 25px;
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 500;
         }
 
         .nivel-convite {
-            padding: clamp(20px, 5vw, 28px); border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding: clamp(18px, 5vw, 25px) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
             transition: all 0.3s;
         }
         .nivel-convite:last-child { border-bottom: none; }
         .cargo-titulo {
-            margin-bottom: 16px;
-            display: flex; align-items: center;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         .nome-cargo { 
             color: var(--destaque-branco); 
             font-weight: 900; 
-            font-size: clamp(22px, 5vw, 26px); 
+            font-size: clamp(20px, 4.5vw, 28px); 
             text-transform: uppercase;
             text-shadow: 0 0 6px rgba(255,255,255,0.3);
         }
-        .linha-meta {
-            margin-bottom: 12px;
-            font-size: clamp(18px, 4vw, 21px);
-            display: flex; align-items: center;
+        .linha-meta, .linha-perms {
+            margin-bottom: 10px;
+            font-size: clamp(16px, 3.8vw, 20px);
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            flex-wrap: wrap;
         }
-        .linha-perms {
-            color: var(--texto-cinza); font-size: clamp(17px, 3.8vw, 20px);
-            display: flex; align-items: flex-start;
-        }
-        .texto-meta {
+        .texto-meta, .texto-perms {
             color: var(--destaque-branco);
             font-weight: 900;
-            font-size: 19px;
-            margin-right: 8px;
+            font-size: 18px;
             text-transform: uppercase;
-        }
-        .texto-perms {
-            color: var(--destaque-branco);
-            font-weight: 900;
-            font-size: 19px;
-            margin-right: 8px;
-            text-transform: uppercase;
+            flex-shrink: 0;
         }
 
         .aviso-inicial {
-            color: var(--texto-cinza); margin-bottom: 24px; text-align: center;
-            font-weight: 600; font-size: clamp(18px, 4vw, 21px);
+            color: var(--texto-cinza);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: clamp(17px, 4vw, 22px);
         }
         .regras-lista { list-style: none; }
         .regras-lista li {
-            padding: clamp(16px, 4vw, 20px) 0; border-bottom: 1px solid rgba(255,255,255,0.15);
-            transition: background 0.3s; color: var(--texto-cinza); font-size: clamp(17px, 3.8vw, 20px); font-weight: 500;
+            padding: clamp(14px, 4vw, 18px) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            transition: background 0.3s;
+            color: var(--texto-cinza);
+            font-size: clamp(16px, 3.8vw, 20px);
+            font-weight: 500;
+            line-height: 1.6;
         }
-        .regras-lista li:hover { background: rgba(255,255,255,0.05); color: var(--destaque-branco); }
+        .regras-lista li:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--destaque-branco);
+        }
 
         .parceira {
-            margin-top: 24px; padding: clamp(18px, 4.5vw, 24px);
+            margin-top: 20px;
+            padding: clamp(15px, 4.5vw, 22px);
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--borda-branca);
             border-radius: 10px;
             text-align: center;
         }
-        .parceira h3 { color: var(--destaque-branco); margin-bottom: 12px; font-size: clamp(20px, 4.5vw, 24px); font-weight: 900; text-transform: uppercase; display: flex; align-items: center; justify-content: center; }
-        .parceira a {
-            color: var(--destaque-branco); font-weight: 700; font-size: clamp(18px, 4vw, 21px);
-            text-decoration: none; transition: all 0.3s;
-            text-shadow: 0 0 6px rgba(255,255,255,0.4);
-            display: flex; align-items: center; justify-content: center;
+        .parceira h3 {
+            color: var(--destaque-branco);
+            margin-bottom: 10px;
+            font-size: clamp(18px, 4.5vw, 26px);
+            font-weight: 900;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
-        .parceira a:hover { color: var(--texto-cinza); text-shadow: 0 0 12px rgba(255,255,255,0.6); }
+        .parceira a {
+            color: var(--destaque-branco);
+            font-weight: 700;
+            font-size: clamp(16px, 4vw, 22px);
+            text-decoration: none;
+            transition: all 0.3s;
+            text-shadow: 0 0 6px rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            word-break: break-all;
+        }
+        .parceira a:hover {
+            color: var(--texto-cinza);
+            text-shadow: 0 0 12px rgba(255,255,255,0.6);
+        }
 
         footer {
-            text-align: center; padding: clamp(20px, 5vw, 32px);
-            background: var(--fundo-principal); color: var(--texto-cinza); border-top: 2px solid var(--borda-branca);
-            font-size: 16px; font-weight: 500;
+            text-align: center;
+            padding: clamp(18px, 5vw, 30px);
+            background: var(--fundo-principal);
+            color: var(--texto-cinza);
+            border-top: 2px solid var(--borda-branca);
+            font-size: clamp(14px, 3.5vw, 18px);
+            font-weight: 500;
+        }
+
+        /* AJUSTES ESPECIAIS PARA TV E TELAS MUITO GRANDES */
+        @media (min-width: 1920px) {
+            html, body { font-size: 18px; }
+            .container { max-width: 1400px; }
+        }
+
+        /* AJUSTES PARA TELAS MUITO PEQUENAS */
+        @media (max-width: 360px) {
+            .destaque-evento p { font-size: 16px; }
+            .nome-cargo { font-size: 18px; }
         }
     </style>
 </head>
@@ -212,6 +326,7 @@
             alt="Logo 100' OUSADIA - FREE FIRE" 
             class="avatar"
             onerror="this.style.display='none'; this.parentElement.innerHTML='<h1 style=\'color:#FFF; text-align:center; font-size:clamp(32px,8vw,48px); font-weight:900;\'>100\' OUSADIA - FREE FIRE</h1>'"
+            loading="lazy"
         >
     </div>
 
@@ -235,7 +350,7 @@
             </p>
             <div class="caixa-servidor">
                 <h3><i class="fas fa-bullhorn icone"></i> SERVIDOR OFICIAL DO SITE</h3>
-                <a href="https://discord.gg/pdx8FkDV78" target="_blank">
+                <a href="https://discord.gg/pdx8FkDV78" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-discord icone"></i> https://discord.gg/pdx8FkDV78
                 </a>
             </div>
@@ -321,7 +436,7 @@
 
             <div class="parceira">
                 <h3><i class="fab fa-discord icone"></i> Parceira</h3>
-                <a href="https://discord.gg/yYemCXzXTx" target="_blank">
+                <a href="https://discord.gg/yYemCXzXTx" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-link icone"></i> https://discord.gg/yYemCXzXTx
                 </a>
             </div>
@@ -333,4 +448,4 @@
     </footer>
 </body>
     </html>
-                    
+    
